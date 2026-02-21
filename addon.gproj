@@ -1,0 +1,8 @@
+GameProject {
+ ID "LegionPM"
+ GUID "68AA22FB01EB21D9"
+ TITLE "Legion PM"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
