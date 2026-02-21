@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{E81F33FD5F8C893B}UI/layouts/Menus/PauseMenu/pauseMenu.layout"
+ Name "{4C8B29889444BDA3}UI/layouts/Menus/LoadingScreen/ScenarioLoadingScreen.layout"
  Configurations {
   LayoutResourceClass PC {
   }

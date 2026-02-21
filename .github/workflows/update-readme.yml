@@ -1,0 +1,63 @@
+name: Update README Addons Table
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.gitmodules'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate addons table and update README
+        run: |
+          python3 << 'EOF'
+          import re
+
+          # Parse .gitmodules
+          with open('.gitmodules', 'r') as f:
+              content = f.read()
+
+          blocks = re.findall(
+              r'\[submodule "([^"]+)"\][^\[]*url\s*=\s*(\S+)',
+              content
+          )
+
+          rows = ['| Addon | URL |', '|---|---|']
+          for name, url in blocks:
+              # Strip .git suffix, get display name from last path segment
+              clean_url = url.rstrip('.git') if url.endswith('.git') else url
+              display = name.split('/')[-1]
+              rows.append(f'| [{display}]({clean_url}) | {clean_url} |')
+
+          table = '\n'.join(rows)
+
+          with open('README.md', 'r') as f:
+              readme = f.read()
+
+          updated = re.sub(
+              r'<!-- ADDONS_TABLE_START -->.*?<!-- ADDONS_TABLE_END -->',
+              f'<!-- ADDONS_TABLE_START -->\n{table}\n<!-- ADDONS_TABLE_END -->',
+              readme,
+              flags=re.DOTALL
+          )
+
+          with open('README.md', 'w') as f:
+              f.write(updated)
+
+          print("README updated successfully.")
+          EOF
+
+      - name: Commit updated README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md || (git add README.md && git commit -m "chore: auto-update addons table in README" && git push)

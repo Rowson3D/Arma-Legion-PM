@@ -1,0 +1,40 @@
+FrameWidgetClass {
+ {
+  FrameWidgetClass "{5E04A017BD489B2A}" {
+   Prefab "{5E04A017BD489B2A}"
+   Slot FrameWidgetSlot "{5E04A017BD489B79}" {
+    Anchor 0.5 0.5 0.5 0.5
+    PositionX 0
+    OffsetLeft 0
+    PositionY -1.909
+    OffsetTop -1.909
+    SizeX 1920
+    OffsetRight -1920
+    SizeY 1080
+    OffsetBottom -1078.09
+   }
+   {
+    OverlayWidgetClass "{5DFF03E4AD9D1E85}" {
+     Prefab "{5DFF03E4AD9D1E85}"
+     Opacity 0.999
+     {
+      ImageWidgetClass "{68AB023FDAC87666}" {
+       Name "m_wLegionLogo"
+       Slot OverlayWidgetSlot "{68AB023CFF4520C0}" {
+        HorizontalAlign 2
+        VerticalAlign 2
+       }
+       Texture "{0D6A256222D81BC6}UI/layouts/Logos/Menu/Logo Small Standalone_UI.edds"
+       Size 180 180
+       "Blend Mode" Additive
+      }
+      ImageWidgetClass "{5DFF03E4AD9D1EF2}" {
+       Prefab "{5DFF03E4AD9D1EF2}"
+       "Blend Mode" Opaque
+      }
+     }
+    }
+   }
+  }
+ }
+}
