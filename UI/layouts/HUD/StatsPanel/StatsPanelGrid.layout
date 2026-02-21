@@ -1,0 +1,27 @@
+FrameWidgetClass : "{8761C24BBDE01B92}UI/layouts/HUD/StatsPanel/StatsPanelGrid.layout" {
+ Slot FrameWidgetSlot "{5D9940FCD3D2AE99}" {
+  Anchor 0 0 1 1
+  OffsetLeft 0
+  OffsetTop 0
+  SizeX 0
+  OffsetRight 0
+  OffsetBottom 0
+ }
+ {
+  HorizontalLayoutWidgetClass "{5D9940F86D91F622}" {
+   Prefab "{5D9940F86D91F622}"
+   Slot FrameWidgetSlot "{5EF7041BF743E293}" {
+    Anchor 0 1 1 1
+    PositionX 0
+    OffsetLeft 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 70
+    OffsetBottom -70
+    Alignment 0 0
+   }
+   "Fill Origin" Center
+  }
+ }
+}
